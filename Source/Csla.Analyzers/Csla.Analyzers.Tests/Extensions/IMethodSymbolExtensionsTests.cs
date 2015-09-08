@@ -17,7 +17,7 @@ namespace Csla.Analyzers.Tests.Extensions
     [TestInitialize]
     public void TestInitialize()
     {
-      this._path = $@"Targets\{nameof(IMethodSymbolExtensionsTests)}.IsDataPortalOperation.cs";
+      this._path = $@"Targets\{nameof(IMethodSymbolExtensionsTests)}\IsDataPortalOperation.cs";
     }
 
     [TestMethod]
@@ -127,7 +127,7 @@ namespace Csla.Analyzers.Tests.Extensions
         syntaxTrees: new[] { tree },
         references: new[]
         {
-          MetadataReference.CreateFromAssembly(typeof(object).Assembly),
+          MetadataReference.CreateFromFile(typeof(object).Assembly.Location),
         });
 
       var model = compilation.GetSemanticModel(tree);
